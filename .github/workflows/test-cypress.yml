@@ -2,21 +2,33 @@ name: CI
 
 on:
   push: 
-  pull_request: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   cypress-tests:
     runs-on: self-hosted
-    container: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
+    container:
+      image: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
 
     steps:
     - uses: actions/checkout@v2
+
+    # https://github.com/cypress-io/cypress-docker-images/issues/560#issuecomment-1029781116
+    - name: Set permissions
+      run: |
+        chmod -R 777 /github/home
+        chmod -R 777 cypress
+        chmod -R 777 /root/.cache
+
     - name: Cypress component tests
       uses: cypress-io/github-action@v2
       with:
         command: npx cypress run-ct --config video=false
+
     - name: Build nextjs
-      run: npm run Build
+      run: npm run build
+
     - name: Cypress integration tests
       uses: cypress-io/github-action@v2
       with:
