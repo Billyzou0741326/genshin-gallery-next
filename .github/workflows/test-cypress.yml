@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push: 
+  pull_request: [ main ]
+
+jobs:
+  cypress-tests:
+    runs-on: self-hosted
+    container: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cypress component tests
+      uses: cypress-io/github-action@v2
+      with:
+        command: npx cypress run-ct --config video=false
+    - name: Build nextjs
+      run: npm run Build
+    - name: Cypress integration tests
+      uses: cypress-io/github-action@v2
+      with:
+        # Already installed in the component tests step
+        install: false
+        start: npm start
