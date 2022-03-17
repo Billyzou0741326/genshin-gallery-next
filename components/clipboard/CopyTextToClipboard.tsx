@@ -51,13 +51,13 @@ const CopyTextToClipboardButton = (props: CopyTextToClipboardButtonProps): JSX.E
   }
   useEffect(() => {
     return () => { if (timeoutRet !== null) clearTimeout(timeoutRet) }
-  }, null)
+  }, [ timeoutRet ])
   return (
     <button onClick={() => copy(text)} className={`${className} relative w-4 h-4`}>
       { popoverVisible && (
         <div className={`absolute p-2 left-1/2 text-xs -translate-x-1/2 -top-12 text-white hover:text-white bg-green-500 rounded-lg`}>
           Copied!
-          <svg aria-hidden="true" width="16" height="6" viewBox="0 0 16 6" className="text-green-500 absolute top-full left-1/2 -mt-px -ml-2"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z" fill="currentColor"></path></svg>
+          <svg aria-hidden="true" width="16" height="6" viewBox="0 0 16 6" className="text-green-500 absolute top-full left-1/2 -mt-px -ml-2"><path fillRule="evenodd" clipRule="evenodd" d="M15 0H1V1.00366V1.00366V1.00371H1.01672C2.72058 1.0147 4.24225 2.74704 5.42685 4.72928C6.42941 6.40691 9.57154 6.4069 10.5741 4.72926C11.7587 2.74703 13.2803 1.0147 14.9841 1.00371H15V0Z" fill="currentColor"></path></svg>
         </div>
       ) }
       {children}
