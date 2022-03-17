@@ -15,10 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # https://github.com/cypress-io/cypress-docker-images/issues/560#issuecomment-1029781116
-    - name: Set permissions
-      run: chmod -R 777 /root/.cache
-
     - name: Cypress component tests
       uses: cypress-io/github-action@v2
       with:
