@@ -23,7 +23,7 @@ jobs:
     - name: Cypress component tests
       uses: cypress-io/github-action@v2
       with:
-        command: npx cypress run-ct --config video=false
+        command: npx cypress run-ct --config video=false,screenshotOnRunFailure=false
 
     - name: Build nextjs
       run: npm run build
@@ -33,5 +33,5 @@ jobs:
       with:
         # Already installed in the component tests step
         install: false
-        config: video=false
+        config: video=false,screenshotOnRunFailure=false
         start: npm start
