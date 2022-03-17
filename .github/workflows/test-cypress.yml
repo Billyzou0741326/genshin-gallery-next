@@ -11,16 +11,14 @@ jobs:
     runs-on: self-hosted
     container:
       image: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
+    env:
+      CYPRESS_CACHE_FOLDER: /root/.cache/Cypress
 
     steps:
-    - uses: actions/checkout@v2
-
-    # https://github.com/cypress-io/cypress-docker-images/issues/560#issuecomment-1029781116
     - name: Set permissions
-      run: |
-        chmod -R 777 /github/home
-        chmod -R 777 cypress
-        chmod -R 777 /root/.cache
+      run: chmod -R a+rwX /root/.cache/Cypress
+
+    - uses: actions/checkout@v2
 
     - name: Cypress component tests
       uses: cypress-io/github-action@v2
@@ -35,4 +33,5 @@ jobs:
       with:
         # Already installed in the component tests step
         install: false
+        config: video=false
         start: npm start
