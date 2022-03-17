@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Set permissions
-      run: chown -R 1001 /github/home && chmod -R a+rwX /github/home
+      run: sudo chown -R 1001 /github/home && sudo chmod -R a+rwX /github/home
 
     - uses: actions/checkout@v2
 
