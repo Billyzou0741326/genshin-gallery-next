@@ -19,7 +19,6 @@ jobs:
     - name: Set permissions
       run: |
         chmod -R 777 /github/home
-        chmod -R 777 cypress
         chmod -R 777 /root/.cache
 
     - name: Cypress component tests
