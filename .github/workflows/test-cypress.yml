@@ -16,6 +16,9 @@ jobs:
       CYPRESS_CACHE_FOLDER: /tmp/.cache
 
     steps:
+    - name: Set permissions
+      run: sh -c "sudo chown -R 1001 /github/home && sudo chmod -R a+rwX /github/home"
+
     - uses: actions/checkout@v2
 
     - name: Cypress component tests
