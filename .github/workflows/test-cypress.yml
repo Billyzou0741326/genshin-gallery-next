@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Set permissions
-      run: chmod -R a+rwX /root/.cache
+      #run: chmod -R a+rwX /root/.cache
 
     - uses: actions/checkout@v2
 
@@ -33,4 +33,5 @@ jobs:
       with:
         # Already installed in the component tests step
         install: false
+        config: video=false
         start: npm start
