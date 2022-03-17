@@ -12,11 +12,11 @@ jobs:
     container:
       image: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
     env:
-      CYPRESS_CACHE_FOLDER: /tmp/.cache
+      CYPRESS_CACHE_FOLDER: /root/.cache/Cypress
 
     steps:
     - name: Set permissions
-      #run: chmod -R a+rwX /root/.cache
+      run: chmod -R a+rwX /root/.cache/Cypress
 
     - uses: actions/checkout@v2
 
