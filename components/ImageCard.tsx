@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import type { ArtworkInfo, ArtworkImageInfo } from '../lib/models/artwork'
+import CopyTextToClipboardButton from './clipboard/CopyTextToClipboard'
 
 
 interface ImageCardProps {
@@ -43,9 +44,12 @@ export default function ImageCard(props: ImageCardProps) {
       {/* Metadata */}
       <div className="rounded-b-2xl p-2 bg-white dark:bg-gray-800 text-sm flex flex-col">
         {/* Pixiv id */}
-        <div className="px-2 py-1 flex flex-row gap-2 items-center text-gray-500"
-             onClick={() => {}/* Copy to clipboard */}>
+        <div className="px-2 py-1 flex flex-row gap-2 items-center text-gray-500">
           <span>{artworkInfo.art_id}</span>
+          <CopyTextToClipboardButton
+            text={artworkInfo.art_id.toString()}
+            className="hover:text-green-500 ease-in-out duration-700"
+          />
         </div>
         {/* Pixiv link */}
         <a target="_blank"
