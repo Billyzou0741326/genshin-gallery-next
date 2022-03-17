@@ -11,4 +11,5 @@ it('copies text to clipboard', () => {
       assert.equal(text, textToCopy)
     })
   })
+  cy.get('div').contains('Copied!')
 })
