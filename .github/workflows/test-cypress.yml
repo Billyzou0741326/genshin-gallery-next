@@ -10,7 +10,7 @@ jobs:
   cypress-tests:
     runs-on: self-hosted
     container:
-      image: cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97
+      image: cypress/included:9.5.3
     env:
       CYPRESS_CACHE_FOLDER: /root/.cache/Cypress
 
