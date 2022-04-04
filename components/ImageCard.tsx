@@ -19,6 +19,7 @@ const Bar = (props: BarProps): JSX.Element => {
   } = props
   return (
     <div className="px-2 py-1 relative">
+      {/* Label & Value */}
       <div className="flex mb-2 items-center justify-between">
         <div>
           <span className="text-xs uppercase leading-3 text-blue-600 bg-blue-200 dark:bg-blue-300 py-1 px-2 rounded-full">
@@ -31,6 +32,7 @@ const Bar = (props: BarProps): JSX.Element => {
           </span>
         </div>
       </div>
+      {/* Horizontal Bar */}
       <div className="overflow-hidden h-2 text-xs flex rounded bg-green-100">
         <div
           style={{
