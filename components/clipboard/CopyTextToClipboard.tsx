@@ -22,7 +22,10 @@ interface TooltipProps {
 const Tooltip = (props: TooltipProps): JSX.Element => {
   const { show = false } = props
   return (
-    <div className={`absolute p-2 left-1/2 text-xs -translate-x-1/2 -top-12 text-white hover:text-white bg-green-500 rounded-lg ease-in-out duration-500 ${show ? 'block' : 'hidden'}`}>
+    <div className={`absolute p-2 left-1/2 text-xs -translate-x-1/2 -top-12
+      text-white hover:text-white bg-green-400 rounded-lg ease-in-out duration-500
+      ${show ? 'block' : 'hidden'}`
+    }>
       Copied!
       {/* tailwind css docs */}
       <svg aria-hidden="true" width="16" height="6" viewBox="0 0 16 6" className="text-green-500 absolute top-full left-1/2 -mt-px -ml-2">
